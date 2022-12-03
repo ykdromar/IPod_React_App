@@ -1,0 +1,45 @@
+/* css for buttons control panel */
+#buttons{ 
+    border-radius: 50%;
+    background-color:white;
+    width:180px;
+    height:180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+ /*css for center ok button*/
+#ok-button{ 
+    border-radius: 50%;
+    width:60px;
+    height:60px;
+    background-color:rgb(224, 224, 224);
+}
+/* css for all button */
+.button{ 
+    width:30px;
+    height: 30px;
+    position: absolute;
+    
+}
+/*css for only pause/play button*/
+#pause-play-button{ 
+    bottom:18px;
+}
+/* css for forward button*/
+#forward-button{
+    right:18px;
+    width:21px; /* redusing image size of forward button because its image size is bigger then other images in general*/
+    height:21px;
+}
+/* cs for backward button*/
+#backward-button{
+    left:18px;
+}
+/* css for menu button*/
+#menu-button{
+    top:18px;
+    position: absolute;
+
+}
