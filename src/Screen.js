@@ -1,10 +1,13 @@
 import './screen.css';
-const Screen=()=>{
+import MenuHome from './MenuHome';
+const Screen=(props)=>{
     return(
         <div id="screen">
-            Screen
+            {props.MenuHome.status&&<MenuHome items={props.MenuHome.items} />}
         </div>
     );
 }
 
 export default Screen;
+
+
