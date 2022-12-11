@@ -1,5 +1,11 @@
-/* css for buttons control panel */
-#buttons{ 
+#buttons{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* css for circular buttons control panel */
+#circular{ 
     border-radius: 50%;
     background-color:white;
     width:180px;
@@ -8,6 +14,7 @@
     align-items: center;
     justify-content: center;
     position: relative;
+    
 }
  /*css for center ok button*/
 #ok-button{ 
@@ -15,6 +22,7 @@
     width:60px;
     height:60px;
     background-color:rgb(224, 224, 224);
+    position: absolute;
 }
 /* css for all button */
 .button{ 

@@ -8,12 +8,14 @@ class IPod extends React.Component {
         super()
         this.state={
             MenuHome:{
-                status:'true',
+                key:1,
+                title:'MenuHome',
+                status:true,
                 items:[
                     {
                         id:1,
                         title:'Coverflow',
-                        class:'',
+                        class:'active',
                     },
                     {
                         id:2,
@@ -23,7 +25,7 @@ class IPod extends React.Component {
                     {
                         id:3,
                         title:'Games',
-                        class:'active',
+                        class:'',
                     },
                     {
                         id:4,
@@ -31,12 +33,33 @@ class IPod extends React.Component {
                         class:'',
                     },
                 ],
+            },
+            Coverflow:{
+                key:2,
+                title:"Coverflow",
+                status:false,
+
+            },
+            Games:{
+                key:3,
+                title:"Games",
+                status:false,
+            },
+            Setting:{
+                key:4,
+                title:"Setting",
+                status:false,
+            },
+            Music:{
+                key:5,
+                title:"Music",
+                status:false,
             }
         }
     }
     componentDidMount(){
         // when iPod component is mounted then accessing the button component to add event listner
-        let buttons=document.getElementById('buttons'); // getting the circular button component
+        let buttons=document.getElementById('circular'); // getting the circular button component
         let currAngle=0; // current angle of rotation
         // adding the rotate event using zingtouch to bottons
         var activeRegion = ZingTouch.Region(buttons);
@@ -143,14 +166,84 @@ class IPod extends React.Component {
         });
         this.setState({MenuHome});
     }
+    // functions to switch screens
+// ok button function
+ok=()=>{
+    
+    const{MenuHome,Coverflow,Games,Setting,Music}=this.state;
+    let activeItem;
+    
+    if(MenuHome.status){ // finding the selected option in the menu
+        let items=MenuHome.items;
+        for(let item of items){
+            if(item.class==='active'){
+                activeItem=item.title;
+                break;
+            }
+        }
+        if(Coverflow.title===activeItem){ // if the selected option in menu is this then make this screen as active
+            Coverflow.status=true;
+        }
+        if(Games.title===activeItem){// if the selected option in menu is this then make this screen as active
+            Games.status=true;
+        }
+        if(Setting.title===activeItem){// if the selected option in menu is this then make this screen as active
+            Setting.status=true;
+        }
+        if(Music.title===activeItem){// if the selected option in menu is this then make this screen as active
+            Music.status=true;
+        }
+        MenuHome.status=false; // making menu option as inactive 
+        
+        this.setState({
+            MenuHome,
+            Coverflow,
+            Games,
+            Setting,
+            Music
+        })
+    }
+    
+    
+}
+// menu button
+menu=()=>{
+    const {MenuHome}=this.state;
+if(!MenuHome.status){
+        this.setState((preState)=>{
+            const {MenuHome,Coverflow,Games,Setting,Music}=preState;
+            MenuHome.status=true;
+            Coverflow.status=false;
+            Games.status=false;
+            Setting.status=false;
+            Music.status=false;
+            return{
+                MenuHome:MenuHome,
+                Coverflow:Coverflow,
+                Games:Games,
+                Setting:Setting,
+                Music:Music
+            }
+        });
+    }
+}
+
     // rendering the IPod component using render function
     render(){
         return (
             <div id='ipod'>
                 <Screen 
                 MenuHome={this.state.MenuHome}
+                Coverflow={this.state.Coverflow}
+                Games={this.state.Games}
+                Setting={this.state.Setting}
+                Music={this.state.Music}
+
                 />
-                <Buttons/>
+                <Buttons
+                ok={this.ok}
+                menu={this.menu}
+                />
             </div>
         );
     }
