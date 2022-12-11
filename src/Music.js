@@ -9,6 +9,7 @@ constructor(){
         MenuMusic:{
             key:1,
             title:"MenuMusic",
+            status:true,
             items:[
                 {
                     id:1,
@@ -31,7 +32,8 @@ constructor(){
                     class:'',
                 }
             ]
-        }
+        },
+        
     }
 }
 
@@ -74,7 +76,7 @@ componentDidMount(){
 
 }
 
-//function to make coverflowActive
+//function to make nowPlaying
 
 nowPlayingActive=()=>{
     const{MenuMusic}=this.state;
@@ -92,7 +94,7 @@ nowPlayingActive=()=>{
     });
     this.setState({MenuMusic});
 }
-//function to make coverflowActive
+//function to make playlist active
 
 playlistActive=()=>{
     const{MenuMusic}=this.state;
@@ -109,7 +111,7 @@ playlistActive=()=>{
 
     });
     this.setState({MenuMusic});
-}//function to make coverflowActive
+}//function to make artist active
 
 artistActive=()=>{
     const{MenuMusic}=this.state;
@@ -126,7 +128,7 @@ artistActive=()=>{
 
     });
     this.setState({MenuMusic});
-}//function to make coverflowActive
+}//function to make genre active
 
 genreActive=()=>{
     const{MenuMusic}=this.state;
@@ -144,73 +146,12 @@ genreActive=()=>{
     });
     this.setState({MenuMusic});
 }
-// functions to switch screens
-// ok button function
-// ok=()=>{
 
-// const{MenuHome,Coverflow,Games,Setting,Music}=this.state;
-// let activeItem;
-
-// if(MenuHome.status){ // finding the selected option in the menu
-//     let items=MenuHome.items;
-//     for(let item of items){
-//         if(item.class==='active'){
-//             activeItem=item.title;
-//             break;
-//         }
-//     }
-//     if(Coverflow.title===activeItem){ // if the selected option in menu is this then make this screen as active
-//         Coverflow.status=true;
-//     }
-//     if(Games.title===activeItem){// if the selected option in menu is this then make this screen as active
-//         Games.status=true;
-//     }
-//     if(Setting.title===activeItem){// if the selected option in menu is this then make this screen as active
-//         Setting.status=true;
-//     }
-//     if(Music.title===activeItem){// if the selected option in menu is this then make this screen as active
-//         Music.status=true;
-//     }
-//     MenuHome.status=false; // making menu option as inactive 
-    
-//     this.setState({
-//         MenuHome,
-//         Coverflow,
-//         Games,
-//         Setting,
-//         Music
-//     })
-// }
-
-
-// }
-// // menu button
-// menu=()=>{
-// const {MenuHome}=this.state;
-// if(!MenuHome.status){
-//     this.setState((preState)=>{
-//         const {MenuHome,Coverflow,Games,Setting,Music}=preState;
-//         MenuHome.status=true;
-//         Coverflow.status=false;
-//         Games.status=false;
-//         Setting.status=false;
-//         Music.status=false;
-//         return{
-//             MenuHome:MenuHome,
-//             Coverflow:Coverflow,
-//             Games:Games,
-//             Setting:Setting,
-//             Music:Music
-//         }
-//     });
-// }
-// }
     render(){
+        // const{MenuMusic,NowPlaying,Playlist,Artists,Genre}=this.state;
         return(
             <>
-               < MenuMusic
-               items={this.state.MenuMusic.items}
-               />
+               < MenuMusic items={this.state.MenuMusic.items}/>
             </>
         );
     }

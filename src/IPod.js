@@ -114,7 +114,7 @@ class IPod extends React.Component {
         });
         this.setState({MenuHome});
     }
-    //function to make coverflowActive
+    //function to make music active
 
     musicActive=()=>{
         const{MenuHome}=this.state;
@@ -131,7 +131,7 @@ class IPod extends React.Component {
 
         });
         this.setState({MenuHome});
-    }//function to make coverflowActive
+    }//function to make games active
 
     gamesActive=()=>{
         const{MenuHome}=this.state;
@@ -148,7 +148,7 @@ class IPod extends React.Component {
 
         });
         this.setState({MenuHome});
-    }//function to make coverflowActive
+    }//function to make setting active
 
     settingActive=()=>{
         const{MenuHome}=this.state;
